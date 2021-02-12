@@ -6,3 +6,11 @@
      stat: 
       path: /etc/salt/minion.d/susemanager.conf
      register: client_status
+     stat: 
+      path: /etc/yum.repos.d/susemanager:channel
+     register: client_repository
+
+   - name: Register client CentOS 7
+     debug:
+       msg: "Registering Cent)S 7 client"
+     when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "7"
