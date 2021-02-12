@@ -1,0 +1,8 @@
+---
+- name: Ansible for add SUMA Client
+  hosts: client
+  tasks:
+   - name: Check client status
+     stat: 
+      path: /etc/salt/minion.d/susemanager.conf
+     register: client_status
